@@ -1,0 +1,38 @@
+﻿@page
+@model ASP.NetCoreBiginner.Pages.GraduationCalculationModel
+@{
+    ViewData["Title"] = "GraduationCalculation";
+}
+
+<img src="~/images/grad.jpg" id="gradPic" />
+
+<h2>The Current Date is @Date.GetDay(), @Date.GetMonth() @DateTime.Now.Day, @DateTime.Now.Year</h2>
+
+<h3>How old will you be when you graduate?</h3>
+
+<h3>Enter your dates:</h3>
+
+<div id="formID">
+    <form method="post">
+        <div id="divGrad">
+            <div><label asp-for="Date1.Day">Birth Day:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> <input asp-for="Date1.Day" placeholder="Birth Day" /><span asp-validation-for="Date1.Day"></span></div>
+            <div><label asp-for="Date1.Month">Birth Month:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label> <input asp-for="Date1.Month" placeholder="Birth Month" /><span asp-validation-for="Date1.Month"></span></div>
+            <div>
+                <label asp-for="Date1.Year">
+                    Birth Year:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </label><input asp-for="Date1.Year" placeholder="Birth Year" /><span asp-validation-for="Date1.Year"></span>
+            </div>
+        </div>
+        <br />
+        <div id="divGrad">
+            <div><label asp-for="Date2.Day">Graduation Day:&nbsp;&nbsp;&nbsp;&nbsp;</label><input asp-for="Date2.Day" placeholder="Graduation Day" /><span asp-validation-for="Date2.Day"></span></div>
+            <div><label asp-for="Date2.Month">Graduation Month:</label><input asp-for="Date2.Month" placeholder="Graduation Month" /><span asp-validation-for="Date2.Month"></span></div>
+            <div><label asp-for="Date2.Year">Graduation Year:&nbsp;&nbsp;&nbsp;</label><input asp-for="Date2.Year" placeholder="Graduation Year" /><span asp-validation-for="Date2.Year"></span></div>
+        </div>
+        <br />
+        <div id="submitButton">
+            <input type="submit" asp-page-handler="Calculate" />
+        </div>
+        <h2>@Model.Message</h2>
+    </form>
+</div>
